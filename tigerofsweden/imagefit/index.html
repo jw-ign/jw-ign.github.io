@@ -1,0 +1,103 @@
+<html>
+  <head>
+		<style>
+			@media (max-aspect-ratio: 1/1) {
+				.carousel {
+					flex-direction: row !important;;
+				}
+
+  			.image {
+					width: 100vw !important;
+					height: calc(100vh - 116px) !important;
+				}
+
+				#desc {
+					width: 100vw !important;
+					top: calc(100vh - 116px) !important;
+				}
+
+				img {
+					width: 100vw !important;;
+					object-fit: cover !important;;
+					height: 100% !important;;
+				}
+			}
+
+			/*  Between 1:1 and 2:1 */
+			@media (max-aspect-ratio: 2/1) and (min-aspect-ratio: 1/1) {
+				.image {
+					height: 100vh;
+				}
+
+				img {
+					object-fit: cover;
+					height: 100%;
+				}
+			}
+
+			/*  Default or wider than 2:1 */
+			.carousel {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.image {
+				width: 50vw;
+			}
+
+			#desc {
+				position: fixed;
+				width: 50vw;
+				top: 0;
+				right: 0;
+			}
+
+			img {
+				width: 100%;
+			}
+
+		</style>
+	</head>
+	<body style="margin: 0;">
+
+		<div class="carousel">
+			<div class="image">
+				<img src="./images/product01.jpg" id="image"/>
+			</div>
+			<div class="image">
+				<img src="./images/product01.jpg" id="image"/>
+			</div>
+		</div>
+		<div style="height: 100vh; padding: 16px; box-sizing: border-box; background-color: #FFFEFC;" id="desc">
+			Product description
+		</div>
+
+		<!--
+		<script>
+			function isSuperLandscape() {
+				let winWidth = window.innerWidth,
+						winHeight = window.innerHeight;
+				
+				if (((winWidth / 2) / winHeight) > (10/9)) return true;
+				else return false;
+			}
+			
+			let	carousel = document.getElementById("carousel"),
+					image = document.getElementById("image");
+			window.addEventListener("resize", (e) => {
+				let imageFlowsOver = isSuperLandscape();
+				if (imageFlowsOver) {
+					carousel.style.height = null;
+					image.style.height = null;
+					image.style.objectFit = null;
+				}
+				else {
+					carousel.style.height = "100vh";
+					image.style.height = "100%";
+					image.style.objectFit = "cover";
+				}
+			})
+		</script>
+		-->
+	</body>
+</html>
