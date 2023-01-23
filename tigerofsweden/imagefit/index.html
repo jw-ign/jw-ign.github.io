@@ -6,32 +6,23 @@
 					flex-direction: row !important;;
 				}
 
-  			.image {
-					width: 100vw !important;
-					height: calc(100vh - 116px) !important;
-				}
-
 				#desc {
 					width: 100vw !important;
 					top: calc(100vh - 116px) !important;
 				}
 
 				img {
-					width: 100vw !important;;
-					object-fit: cover !important;;
-					height: 100% !important;;
+					width: 100vw !important;
+					object-fit: cover !important;
+					height: calc(100vh - 116px) !important;
 				}
 			}
 
 			/*  Between 1:1 and 2:1 */
 			@media (max-aspect-ratio: 2/1) and (min-aspect-ratio: 1/1) {
-				.image {
-					height: 100vh;
-				}
-
 				img {
 					object-fit: cover;
-					height: 100%;
+					height: 100vh;
 				}
 			}
 
@@ -39,10 +30,6 @@
 			.carousel {
 				display: flex;
 				flex-direction: column;
-			}
-
-			.image {
-				width: 50vw;
 			}
 
 			#desc {
@@ -53,7 +40,7 @@
 			}
 
 			img {
-				width: 100%;
+				width: 50vw;
 			}
 
 		</style>
