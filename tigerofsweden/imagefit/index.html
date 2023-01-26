@@ -12,17 +12,24 @@
 				}
 
 				img {
-					width: 100vw !important;
-					object-fit: cover !important;
+					width: 100vw !important;;
+					object-fit: cover !important;;
 					height: calc(100vh - 116px) !important;
 				}
 			}
 
 			/*  Between 1:1 and 2:1 */
 			@media (max-aspect-ratio: 2/1) and (min-aspect-ratio: 1/1) {
-				img {
-					object-fit: cover;
+				.image.fit {
 					height: 100vh;
+				}
+
+				img {
+					height: 100%;
+				}
+
+				img.fit {
+					object-fit: cover;
 				}
 			}
 
@@ -48,43 +55,52 @@
 	<body style="margin: 0;">
 
 		<div class="carousel">
-			<div class="image">
-				<img src="./images/product01.jpg" id="image"/>
+			<div class="image fit">
+				<img src="https://jw-ign.github.io/tigerofsweden/imagefit/images/product01.jpg?raw=true" id="image1" class="fit"/>
 			</div>
-			<div class="image">
-				<img src="./images/product02.jpg" id="image"/>
+			<div class="image fit">
+				<img src="https://jw-ign.github.io/tigerofsweden/imagefit/images/product02.jpg?raw=true" id="image2" class="fit"/>
 			</div>
 		</div>
 		<div style="height: 100vh; padding: 16px; box-sizing: border-box; background-color: #FFFEFC;" id="desc">
 			Product description
+			<div>
+				<div id="option" style="margin-top: 32px;">Fit image to viewport on desktop</div>
+				<div id="change" style="margin-top: 4px; padding: 8px; background-color: #000; color: #fff; cursor: pointer;">Change</div>
+			</div>
 		</div>
 
-		<!--
 		<script>
-			function isSuperLandscape() {
-				let winWidth = window.innerWidth,
-						winHeight = window.innerHeight;
-				
-				if (((winWidth / 2) / winHeight) > (10/9)) return true;
-				else return false;
+			let images = {
+				fit: [ "https://jw-ign.github.io/tigerofsweden/imagefit/images/product01.jpg?raw=true", "https://jw-ign.github.io/tigerofsweden/imagefit/images/product02.jpg?raw=true" ],
+				nofit: [ "https://jw-ign.github.io/tigerofsweden/imagefit/images/product03.jpg?raw=true", "https://jw-ign.github.io/tigerofsweden/imagefit/images/product04.jpg?raw=true" ]
 			}
-			
-			let	carousel = document.getElementById("carousel"),
-					image = document.getElementById("image");
-			window.addEventListener("resize", (e) => {
-				let imageFlowsOver = isSuperLandscape();
-				if (imageFlowsOver) {
-					carousel.style.height = null;
-					image.style.height = null;
-					image.style.objectFit = null;
+
+			let button = document.getElementById("change"),
+					option = document.getElementById("option"),
+					image1 = document.getElementById("image1"),
+					image2 = document.getElementById("image2");
+
+			button.addEventListener("click", (e) => {
+				if (option.textContent == "Fit image to viewport on desktop") {
+					image1.src = images.nofit[0];
+					image2.src = images.nofit[1];
+					image1.classList.remove("fit");
+					image2.classList.remove("fit");
+					image1.parentElement.classList.remove("fit");
+					image2.parentElement.classList.remove("fit");
+					option.textContent = "Use image aspect ratio on desktop";
 				}
 				else {
-					carousel.style.height = "100vh";
-					image.style.height = "100%";
-					image.style.objectFit = "cover";
+					image1.src = images.fit[0];
+					image2.src = images.fit[1];
+					image1.classList.add("fit");
+					image2.classList.add("fit");
+					image1.parentElement.classList.add("fit");
+					image2.parentElement.classList.add("fit");
+					option.textContent = "Fit image to viewport on desktop";
 				}
-			})
+			});
 		</script>
-		-->
 	</body>
 </html>
