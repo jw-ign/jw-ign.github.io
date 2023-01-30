@@ -55,68 +55,18 @@
 	<body style="margin: 0;">
 
 		<div class="carousel">
-			<div class="image fit">
-				<img src="https://jw-ign.github.io/tigerofsweden/imagefit/images/product01.jpg?raw=true" id="image1" class="fit"/>
+			<div class="image">
+				<img src="https://jw-ign.github.io/tigerofsweden/imagefit/images/product03.jpg?raw=true" id="image1" class="fit"/>
 			</div>
-			<div class="image fit">
-				<img src="https://jw-ign.github.io/tigerofsweden/imagefit/images/product02.jpg?raw=true" id="image2" class="fit"/>
+			<div class="image">
+				<img src="https://jw-ign.github.io/tigerofsweden/imagefit/images/product04.jpg?raw=true" id="image2" class="fit"/>
 			</div>
-			<div class="image fit">
-				<img src="https://jw-ign.github.io/tigerofsweden/imagefit/images/product05.jpg?raw=true" id="image3" class="fit"/>
+			<div class="image">
+				<img src="https://jw-ign.github.io/tigerofsweden/imagefit/images/product06.jpg?raw=true" id="image3" class="fit"/>
 			</div>
 		</div>
 		<div style="height: 100vh; padding: 16px; box-sizing: border-box; background-color: #FFFEFC;" id="desc">
 			Product description
-			<div>
-				<div id="option" style="margin-top: 32px;">Fit image to viewport on desktop</div>
-				<div id="change" style="margin-top: 4px; padding: 8px; background-color: #000; color: #fff; cursor: pointer;">Change</div>
-			</div>
 		</div>
-
-		<script>
-			let images = {
-				fit: [
-					"https://jw-ign.github.io/tigerofsweden/imagefit/images/product01.jpg?raw=true",
-					"https://jw-ign.github.io/tigerofsweden/imagefit/images/product02.jpg?raw=true",
-					"https://jw-ign.github.io/tigerofsweden/imagefit/images/product05.jpg?raw=true" ],
-				nofit: [ 
-					"https://jw-ign.github.io/tigerofsweden/imagefit/images/product03.jpg?raw=true",
-					"https://jw-ign.github.io/tigerofsweden/imagefit/images/product04.jpg?raw=true",
-					"https://jw-ign.github.io/tigerofsweden/imagefit/images/product06.jpg?raw=true" ]
-			}
-
-			function fitImage(toScreen) {
-				let lib = (toScreen) ? "fit" : "nofit";
-
-				for (let i = 0; i < images[lib].length; ++i) {
-					let key = i + 1,
-							div = productImg[key];
-					div.src = images[lib][i];
-					if (toScreen) {
-						div.classList.add("fit");
-						div.parentElement.classList.add("fit");
-					}
-					else {
-						div.classList.remove("fit");
-						div.parentElement.classList.remove("fit");
-					}
-				}
-
-				option.textContent = (toScreen) ? "Fit image to viewport on desktop" : "Use image aspect ratio on desktop";
-			}
-
-			let button = document.getElementById("change"),
-					option = document.getElementById("option");
-			let productImg = {
-				1: document.getElementById("image1"),
-				2: document.getElementById("image2"),
-				3: document.getElementById("image3")
-			}
-
-			button.addEventListener("click", (e) => {
-				if (option.textContent == "Fit image to viewport on desktop") fitImage(false);
-				else fitImage(true);
-			});
-		</script>
 	</body>
 </html>
